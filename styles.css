@@ -408,6 +408,157 @@ img {
     transform: scale(1.05);
 }
 
+/* Protocol Overlay Styles */
+.protocol-card-image {
+    position: relative;
+}
+
+.protocol-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 24px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.7) 60%, transparent 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.4s ease;
+}
+
+.protocol-card-image:hover .protocol-overlay {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.protocol-overlay .protocol-tag {
+    align-self: flex-start;
+    margin-bottom: 12px;
+    font-size: 9px;
+    padding: 4px 10px;
+}
+
+.protocol-overlay .protocol-name {
+    font-size: 28px;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 8px;
+    line-height: 1.2;
+}
+
+.protocol-overlay .protocol-desc {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 16px;
+    line-height: 1.4;
+}
+
+.protocol-overlay .protocol-benefits {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.protocol-overlay .protocol-benefits span {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--primary);
+    background: rgba(37, 99, 235, 0.2);
+    padding: 6px 12px;
+    border-radius: 20px;
+    border: 1px solid rgba(37, 99, 235, 0.3);
+}
+
+.protocol-overlay .protocol-info {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 16px;
+    flex: unset;
+}
+
+.protocol-overlay .protocol-info span {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.6);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.protocol-overlay .protocol-info span::before {
+    content: '';
+    width: 4px;
+    height: 4px;
+    background: var(--primary);
+    border-radius: 50%;
+}
+
+.protocol-overlay .btn-sm {
+    padding: 10px 20px;
+    font-size: 13px;
+    align-self: flex-start;
+}
+
+/* Mobile always show overlay */
+@media (max-width: 768px) {
+    .protocol-overlay {
+        opacity: 1;
+        transform: translateY(0);
+        padding: 16px;
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.6) 70%, transparent 100%);
+    }
+
+    .protocol-overlay .protocol-name {
+        font-size: 20px;
+    }
+
+    .protocol-overlay .protocol-desc {
+        font-size: 12px;
+        margin-bottom: 12px;
+    }
+
+    .protocol-overlay .protocol-benefits {
+        gap: 6px;
+        margin-bottom: 12px;
+    }
+
+    .protocol-overlay .protocol-benefits span {
+        font-size: 10px;
+        padding: 4px 8px;
+    }
+
+    .protocol-overlay .protocol-info {
+        gap: 12px;
+        margin-bottom: 12px;
+    }
+
+    .protocol-overlay .protocol-info span {
+        font-size: 10px;
+    }
+
+    .protocol-overlay .btn-sm {
+        padding: 8px 16px;
+        font-size: 12px;
+    }
+}
+
+/* Tablet */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .protocol-overlay {
+        padding: 20px;
+    }
+
+    .protocol-overlay .protocol-name {
+        font-size: 24px;
+    }
+
+    .protocol-overlay .protocol-desc {
+        font-size: 13px;
+    }
+}
+
 .protocol-tag {
     display: inline-block;
     font-size: 10px;
