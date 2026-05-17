@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initTimelineDots();
     initHeaderScroll();
     initCurrentYear();
+    initAccordion();
 });
 
 // Set current year in footer
@@ -390,6 +391,36 @@ function throttle(func, limit) {
             setTimeout(() => inThrottle = false, limit);
         }
     };
+}
+
+// FAQ Accordion
+function initAccordion() {
+    const accordionItems = document.querySelectorAll('.accordion-item');
+
+    if (accordionItems.length === 0) return;
+
+    accordionItems.forEach(item => {
+        const header = item.querySelector('.accordion-header');
+
+        header.addEventListener('click', () => {
+            const isActive = item.classList.contains('active');
+
+            // Close all accordion items (optional: remove this for multi-open)
+            accordionItems.forEach(otherItem => {
+                otherItem.classList.remove('active');
+            });
+
+            // Toggle current item
+            if (!isActive) {
+                item.classList.add('active');
+            }
+        });
+    });
+
+    // Open first item by default
+    if (accordionItems[0]) {
+        accordionItems[0].classList.add('active');
+    }
 }
 
 // Console welcome message
